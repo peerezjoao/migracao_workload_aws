@@ -10,6 +10,12 @@ variable "aws_profile" {
     default = "tf_user"
 }
 
+variable "vpc_name" {
+    type = string
+    description = "VPC Name"
+    default = "vpc-bootcamp"
+}
+
 variable "aws_vpc_cidr_block" {
     type = string
     description = "CIDR block value for the VPC configuration."
