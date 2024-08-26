@@ -22,6 +22,24 @@ variable "aws_vpc_cidr_block" {
     default = "10.0.0.0/16"
 }
 
+variable "aws_public_subnet_name" {
+    type = string
+    description = "Public Subnet Name"
+    default = "Public Subnet"
+}
+
+variable "aws_availability_zone" {
+    type = string
+    description = "Availability Zone"
+    default = "us-east-1a" 
+}
+
+variable "aws_subnet_cidr_block" {
+    type = string
+    description = "CIDR block value for the public subnet configuration."
+    default = "10.0.0.0/24"  
+}
+
 variable "tags_for_vpc" {
     type = map(string)
     description = "Tags associated with the VPC for resource identification and organization."

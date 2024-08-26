@@ -12,3 +12,15 @@ resource "aws_vpc" "vcp-main" {
         "Fields" = join("_", values(var.tags_for_vpc))
     })
 }
+
+# create a public subnet
+resource "aws_subnet" "public_subnet" {
+    vpc_id = aws_vpc.vcp-main.id
+    availability_zone = var.aws_availability_zone
+    cidr_block = var.aws_subnet_cidr_block
+
+    tags = merge(var.tags_for_vpc, {
+        "Name" = var.aws_public_subnet_name
+        "Fields" = join("_", values(var.tags_for_vpc))
+    })
+}
