@@ -39,9 +39,9 @@ resource "aws_subnet" "private_subnet" {
 }
 
 # create a security group
-resource "aws_security_group" "web" {
+resource "aws_security_group" "EC2toRDS-sg" {
   
-    name = "http_acess"
+    name = "EC2toRDS-sg"
     vpc_id = aws_vpc.vcp_main.id
 
     ingress  {
@@ -122,7 +122,7 @@ resource "aws_instance" "aws_app" {
     ami = data.aws_ami.ubuntu.id
     instance_type = "t2.micro"
     subnet_id = aws_subnet.public_subnet.id
-    vpc_security_group_ids = [aws_security_group.web.id]
+    vpc_security_group_ids = [aws_security_group.EC2toRDS-sg.id]
 
     associate_public_ip_address = true
 
