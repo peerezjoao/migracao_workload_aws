@@ -70,6 +70,29 @@ resource "aws_security_group" "web" {
     })
 }
 
+resource "aws_internet_gateway" "gateway" {
+  
+    vpc_id = aws_vpc.vcp_main.id
+
+}
+
+resource "aws_route_table" "public_rt" {
+  
+    vpc_id = aws_vpc.vcp_main.id
+
+    route  {
+        cidr_block = "0.0.0.0/0"
+        gateway_id = aws_internet_gateway.gateway.id
+    }
+}
+
+resource "aws_route_table_association" "public_assoc" {
+  
+    subnet_id = aws_subnet.public_subnet.id
+    route_table_id = aws_route_table.public_rt.id 
+
+}
+
 # get the last ami ubuntu
 data "aws_ami" "ubuntu" {
     most_recent = true
@@ -86,6 +109,13 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical
 }
 
+resource "aws_key_pair" "tutorial_kp" {
+
+    key_name = "tutorial_kp"
+    public_key = file("tutorial_kp.pub")
+
+}
+
 # create a aws instance 
 resource "aws_instance" "aws_app" {
 
@@ -95,6 +125,8 @@ resource "aws_instance" "aws_app" {
     vpc_security_group_ids = [aws_security_group.web.id]
 
     associate_public_ip_address = true
+
+    key_name = aws_key_pair.tutorial_kp.key_name
     
     tags = merge(var.tags_for_instance, {
         "Name" = "awsuse1app01"
