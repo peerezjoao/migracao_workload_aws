@@ -29,15 +29,27 @@ variable "aws_public_subnet_name" {
 }
 
 variable "aws_availability_zone" {
-    type = string
+    type = list(string)
     description = "Availability Zone"
-    default = "us-east-1a" 
+    default = ["us-east-1a","us-east-1b"] 
 }
 
-variable "aws_subnet_cidr_block" {
-    type = string
+variable "aws_public_subnet_cidr_block" {
+    type = list(string)
     description = "CIDR block value for the public subnet configuration."
-    default = "10.0.0.0/24"  
+    default = ["10.0.0.0/24"]  
+}
+
+variable "aws_private_subnet_name" {
+    type = string
+    description = "Private Subnet Name"
+    default = "Private Subnet"
+}
+
+variable "aws_private_subnet_cidr_block" {
+    type = list(string)
+    description = "CIDR block value for the private subnet configuration."
+    default = ["10.0.1.0/24", "10.0.2.0/24"]
 }
 
 variable "tags_for_vpc" {
