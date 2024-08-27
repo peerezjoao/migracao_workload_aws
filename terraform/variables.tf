@@ -60,3 +60,12 @@ variable "tags_for_vpc" {
       "CreatedAt" = "2024-08-26"
     }
 }   
+
+variable "tags_for_instance" {
+    type = map(string)
+    description = "Tags associated with the instance for resource identification and organization."
+    default = {
+      "Project" = "Migration workload to AWS"
+      "CreatedAt" = "2024-08-26"
+    }
+}
