@@ -101,5 +101,3 @@ resource "aws_instance" "aws_app" {
         "Fields" = join("_", values(var.tags_for_instance))
     })
 }
-
-
