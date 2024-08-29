@@ -8,8 +8,13 @@ module "vpc" {
 
 }
 
+module "keypair" {
+    source = "./modules/keypair"
+}
+
 module "ec2" {
     source = "./modules/ec2"
 
     subnet_id = module.vpc.public_subnet_id.id
+    key_name = module.keypair.keyapp_kp.id
 }
