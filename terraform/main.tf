@@ -5,7 +5,6 @@ provider "aws" {
 
 module "vpc" {
     source = "./modules/vpc"
-
 }
 
 module "keypair" {
@@ -14,11 +13,20 @@ module "keypair" {
 
 module "security" {
     source = "./modules/security-services"
+
+    vpc_id = module.vpc.vpc_id
+}
+
+module "internet_gateway" {
+    source = "./modules/internet-gateway"
+
+    vpc_id = module.vpc.vpc_id
 }
 
 module "ec2" {
     source = "./modules/ec2"
 
-    subnet_id = module.vpc.public_subnet_id.id
-    key_name = module.keypair.keyapp_kp.key_name
+    subnet_id = module.vpc.public_subnet_id
+    key_name = module.keypair.keyapp_kp
+    security_group_id = [module.security.security_group_id]
 }
