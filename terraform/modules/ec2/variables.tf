@@ -13,13 +13,11 @@ variable "instance_type" {
 variable "subnet_id" {
     type = string
     description = "The ID of the subnet in which the instance will be launched."
-    default = "t2.micro"
 }
 
 variable "security_group_id" {
-    type = string
+    type = list(string)
     description = "The ID of the security group in which the instance will be launched."
-    default = ""
 }
 
 variable "key_name" {
