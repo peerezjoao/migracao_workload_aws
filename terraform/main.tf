@@ -30,6 +30,13 @@ module "route_table" {
     internet_gateway_id = module.internet_gateway.internet_gateway_id
 }
 
+module "route_table_association" {
+    source = "./modules/route-table-association"
+
+    subnet_id = module.vpc.public_subnet_id
+    public_route_table_id = module.route_table.route_table_id
+}
+
 module "ec2" {
     source = "./modules/ec2"
 
