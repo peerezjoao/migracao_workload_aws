@@ -14,7 +14,7 @@ Migração de um Workload rodando em data center (On Premises) para dentro da AW
      <li>Uma instância de RDS</li>
      <li>Um internet gateway</li>
      <li>Uma rota</li>
-
+    <p></p>
 <p>Conectamos na instância EC2 e realizamos a instalação de todos os pacotes necesário para a aplicação rodar. Após isso, configuramos o servidor do Banco de Dados, no caso desse projeto o MySQL, com o nosso endpoint do Amazon Relational Database Service, credenciais de acesso e outros. Realizado as configurações, colocamos nossa aplicação para rodar. E pronto, agora seguiremos os próximos passos de acompanhar como a aplicação está se comportando no novo ambiente e prestar o devido suporte.</p>
 
 # Conclusão
