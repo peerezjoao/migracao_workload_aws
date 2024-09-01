@@ -6,7 +6,7 @@ Migração de um Workload rodando em data center (On Premises) para dentro da AW
    <li>Acelera o processo de provisionamento de infraestrutura de produção, teste e produção. </li>
    <li>Diminuição na taxa de retrabalho e nos erros de configuração.</li>
    <li>A IaC baseia-se muito na automatização dos processos, com a infraestrutura automatizada, se torna repetível em outras aplicações e outros ambientes.</li>
-    
+    <p></p>
 <p>Nesse projeto, estamos trabalhando com: </p>
      <li>Uma VPC;</li>
      <li>Uma subnet pública e duas subnets privadas;</li>
