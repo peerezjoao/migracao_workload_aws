@@ -18,6 +18,8 @@ Migração de um Workload rodando em data center (On Premises) para dentro da AW
 <p>Conectamos na instância EC2 e realizamos a instalação de todos os pacotes necesário para a aplicação rodar. Após isso, configuramos o servidor do Banco de Dados, no caso desse projeto o MySQL, com o nosso endpoint do Amazon Relational Database Service, credenciais de acesso e outros. Realizado as configurações, colocamos nossa aplicação para rodar. E pronto, agora seguiremos os próximos passos de acompanhar como a aplicação está se comportando no novo ambiente e prestar o devido suporte.</p>
 
 # Arquitetura do Processo
+   <p>Aqui podemos ver a imagem da arquitetura proposta no projeto que foi implementada com Terraform.</p>
+   <p></p>
 <img width="753" alt="Captura de Tela 2024-09-01 às 14 17 10" src="https://github.com/user-attachments/assets/b3420a25-89f9-4745-82e7-b4356040553c">
 
 # Conclusão
