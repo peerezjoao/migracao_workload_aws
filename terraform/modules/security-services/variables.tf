@@ -4,3 +4,8 @@ variable "security_group_name" {
     default = "EC2toRDS"
 }
 
+variable "vpc_id" {
+    type = string
+    description = "The name of VPC"
+    default = "vpc"
+}
